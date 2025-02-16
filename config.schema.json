@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "HomebridgeSmartThingsAC",
+  "pluginAlias": "HomebridgeSmartThingsACoAuth",
   "pluginType": "platform",
   "singular": true,
   "schema": {
