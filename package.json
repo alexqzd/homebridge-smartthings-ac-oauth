@@ -42,7 +42,6 @@
     "typescript": "^4.2.2"
   },
   "dependencies": {
-    "@smartthings/core-sdk": "^1.8.1",
-    "hap-nodejs": "^1.1.0"
+    "@smartthings/core-sdk": "^1.8.1"
   }
 }
