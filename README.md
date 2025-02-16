@@ -10,7 +10,7 @@ Not affiliated with Samsung Electronics Co., Ltd!
 
 Install the plugin by running:
 
-    sudo npm install -g homebridge-smartthings-ac
+    sudo npm install -g homebridge-smartthings-ac-oauth
 
 To communicate with your SmartThings devices, you need to generate a SmartThings API token here: https://account.smartthings.com/tokens
 
