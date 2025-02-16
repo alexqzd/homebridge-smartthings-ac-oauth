@@ -1,15 +1,15 @@
 {
-  "displayName": "Homebridge Smartthings AC",
-  "name": "homebridge-smartthings-ac",
+  "displayName": "Homebridge Smartthings AC oAuth",
+  "name": "homebridge-smartthings-ac-oauth",
   "version": "1.0.9",
   "description": "Control your Samsung SmartThings AC using Homebridge.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:0x4a616e/homebridge-samsung-ac.git"
+    "url": "git@github.com:alexqzd/homebridge-samsung-ac-oauth.git"
   },
   "bugs": {
-    "url": "https://github.com/0x4a616e/homebridge-samsung-ac/issues"
+    "url": "https://github.com/alexqzd/homebridge-samsung-ac-oauth/issues"
   },
   "engines": {
     "node": ">=10.17.0",
@@ -42,6 +42,7 @@
     "typescript": "^4.2.2"
   },
   "dependencies": {
-    "@smartthings/core-sdk": "^1.8.1"
+    "@smartthings/core-sdk": "^1.8.1",
+    "hap-nodejs": "^1.1.0"
   }
 }
