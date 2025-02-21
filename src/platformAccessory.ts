@@ -1,5 +1,5 @@
 import { CapabilityReference, Component, Device } from '@smartthings/core-sdk';
-import { TargetHeaterCoolerState } from 'hap-nodejs/dist/lib/definitions';
+import { CurrentHeaterCoolerState, TargetHeaterCoolerState } from 'hap-nodejs/dist/lib/definitions';
 import { Service, PlatformAccessory, CharacteristicValue } from 'homebridge';
 import { DeviceAdapter } from './deviceAdapter';
 import { SmartThingsPlatform } from './platform';
@@ -69,6 +69,9 @@ export class SmartThingsAirConditionerAccessory {
       .onGet(this.getHeaterCoolerState.bind(this))
       .onSet(this.setHeaterCoolerState.bind(this));
 
+    this.service.getCharacteristic(this.platform.Characteristic.CurrentHeaterCoolerState)
+      .onGet(this.getCurrentHeaterCoolerState.bind(this));
+
     this.service.getCharacteristic(this.platform.Characteristic.CurrentTemperature)
       .onGet(this.getCurrentTemperature.bind(this));
 
@@ -98,6 +101,10 @@ export class SmartThingsAirConditionerAccessory {
 
   private getHeaterCoolerState():CharacteristicValue {
     return this.fromSmartThingsMode(this.deviceStatus.mode);
+  }
+
+  private getCurrentHeaterCoolerState():CharacteristicValue {
+    return this.fromSmartThingsModeCurrent(this.deviceStatus.mode);
   }
 
   private getCoolingTemperature(): CharacteristicValue {
@@ -172,6 +179,17 @@ export class SmartThingsAirConditionerAccessory {
 
     this.platform.log.warn('Received unknown heater-cooler state', state);
     return TargetHeaterCoolerState.AUTO;
+  }
+
+  private fromSmartThingsModeCurrent(state: string): CharacteristicValue {
+    switch (state) {
+      case 'cool': return CurrentHeaterCoolerState.COOLING;
+      case 'auto': return CurrentHeaterCoolerState.IDLE;
+      case 'heat': return CurrentHeaterCoolerState.HEATING;
+    }
+
+    this.platform.log.warn('Received unknown heater-cooler state', state);
+    return CurrentHeaterCoolerState.IDLE;
   }
 
   private async updateStatus() {
