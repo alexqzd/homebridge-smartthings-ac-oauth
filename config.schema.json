@@ -5,8 +5,26 @@
   "schema": {
     "type": "object",
     "properties": {
-      "token": {
-        "title": "API Token",
+      "authToken": {
+        "title": "API Auth Token",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "refreshToken": {
+        "title": "API Refresh Token",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "clientId": {
+        "title": "API Client ID",
+        "type": "string",
+        "required": true,
+        "default": ""
+      },
+      "clientSecret": {
+        "title": "API Client Secret",
         "type": "string",
         "required": true,
         "default": ""
